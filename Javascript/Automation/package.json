@@ -2,5 +2,8 @@
   "dependencies": {
     "cypress": "^15.5.0",
     "typescript": "^5.9.3"
+  },
+  "scripts": {
+    "test:js": "cypress open --config-file cypress/js/cypress.config.js"
   }
 }

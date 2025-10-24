@@ -1,4 +1,4 @@
-import DataGeneration from '../../support/utils/dataGeneration';
+import DataGeneration from '../support/utils/dataGeneration'; 
 describe('API testing', () => {
     //Arrange
     let baseUrl;
