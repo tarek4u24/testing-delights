@@ -5174,19 +5174,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tarek\\.nuget\\packages\\": {}
+    "C:\\Users\\Home\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Repo\\testing-delights\\CSharp\\XUnit\\xunit_Tests.csproj",
+      "projectUniqueName": "C:\\Users\\Home\\Documents\\testing-delights\\CSharp\\XUnit\\xunit_Tests.csproj",
       "projectName": "xunit_Tests",
-      "projectPath": "D:\\Repo\\testing-delights\\CSharp\\XUnit\\xunit_Tests.csproj",
-      "packagesPath": "C:\\Users\\tarek\\.nuget\\packages\\",
-      "outputPath": "D:\\Repo\\testing-delights\\CSharp\\XUnit\\obj\\",
+      "projectPath": "C:\\Users\\Home\\Documents\\testing-delights\\CSharp\\XUnit\\xunit_Tests.csproj",
+      "packagesPath": "C:\\Users\\Home\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Home\\Documents\\testing-delights\\CSharp\\XUnit\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\tarek\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Home\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
