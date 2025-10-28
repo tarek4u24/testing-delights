@@ -4,10 +4,9 @@
     "typescript": "^5.9.3"
   },
   "scripts": {
-    "test:js": "cypress open --config-file cypress/js/cypress.config.js",
-    "test:ts": "cypress open --config-file cypress/ts/cypress.config.ts",
-    "test:bdd": "cypress open --config-file cypress/bddStyle/cypress.config.ts"
-  },
+    "test:js": "cypress open --headless --config-file cypress/js/cypress.config.js",
+    "test:ts": "cypress open --headless --config-file cypress/ts/cypress.config.ts"
+    },
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^23.2.1",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.6",
