@@ -54,10 +54,12 @@ jobs:
 
       - name: Run JS Cypress tests
         run: npm run test:js
+        working-directory: Javascript/Automation
         env:
           CI: true
 
       - name: Run TS Cypress tests
         run: npm run test:ts
+        working-directory: Javascript/Automation
         env:
           CI: true
