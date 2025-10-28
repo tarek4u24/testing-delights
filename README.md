@@ -33,3 +33,31 @@ Whether you're a recruiter, collaborator, or fellow tester, you're welcome to ex
 - This repo may start with basic implementations, but it’s built with long-term goals in mind.  
 - I’m using this space to experiment, learn, and demonstrate practical testing approaches.  
 - Expect updates, refactors, and new modules as I explore more tools and techniques.
+
+## 🛠️ Pre-requisites & Recommendations
+
+Before running tests or contributing to this project, please ensure the following tools are installed and configured.
+
+---
+
+### ✅ Required
+
+- [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)  
+  Required for building and running unit tests in the `CSharp/XUnit` project.
+
+- [Node.js (v18+)](https://nodejs.org/)  
+  Includes `npm`, which is used to install Cypress and manage frontend dependencies.
+
+- **Cypress** (installed via npm):  
+  From the `Javascript/Automation` directory, run:
+  ```bash
+  npm install cypress --save-dev
+
+### 🧩 Recommended for Development Convenience
+
+To enhance your workflow and visibility while working on this project, consider installing the following optional tools:
+
+- **Tree CLI tool** — useful for visualizing folder structures in the terminal:
+  ```bash
+  choco install tree
+  tree -L 2

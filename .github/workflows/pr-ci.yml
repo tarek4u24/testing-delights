@@ -52,8 +52,12 @@ jobs:
         run: npx cypress install
         working-directory: Javascript/Automation
 
-      - name: Run Cypress tests
-        run: npx cypress run
-        working-directory: Javascript/Automation
+      - name: Run JS Cypress tests
+        run: npm run test:js
+        env:
+          CI: true
+
+      - name: Run TS Cypress tests
+        run: npm run test:ts
         env:
           CI: true
