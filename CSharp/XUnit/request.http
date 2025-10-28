@@ -1,0 +1,14 @@
+@baseUrl=https://api.restful-api.dev/objects
+
+GET {{baseUrl}}?id=ff8081819782e69e0199bcbe3bb65cec
+
+# POST {{baseUrl}}
+# Content-Type: application/json
+
+# {
+#   "name": "My Test Object",
+#   "data": {
+#     "type": "example",
+#     "value": 123
+#   }
+# }

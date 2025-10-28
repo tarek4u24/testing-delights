@@ -1,0 +1,30 @@
+global using Xunit;
+global using BunsenBurner;
+global using static BunsenBurner.ArrangeActAssert;
+global using Shouldly;
+global using RestSharp;
+global using RestSharp.Authenticators;
+global using Allure.Net.Commons;
+global using Xunit.Abstractions;
+
+global using Microsoft.Extensions.Configuration;
+
+global using System.IO;
+global using System.Runtime.CompilerServices;
+global using System.Net;
+global using System.Text;
+global using System.Text.Json;
+global using System.Text.Json.Serialization;
+global using System.Net.Http;
+global using HttpBuildR;
+global using TarekReq = System.Net.Http.HttpMethod;
+global using BunsenBurner.Http;
+global using FluentAssertions.Execution;
+global using Flurl;
+global using LanguageExt;
+global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Linq.Expressions;
+global using System.Threading.Tasks;
+global using Microsoft.Extensions.Logging;
