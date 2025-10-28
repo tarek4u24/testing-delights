@@ -1,0 +1,67 @@
+# Run .NET unit tests and Cypress tests on pull requests
+name: PR CI - .NET & Cypress
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  dotnet-tests:
+    name: .NET Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
+
+      - name: Run unit tests
+        run: dotnet test --no-build --configuration Release --verbosity normal
+        env:
+          CI: true
+
+  cypress-tests:
+    name: Cypress Tests
+    runs-on: ubuntu-latest
+    needs: dotnet-tests
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Cypress binary
+        run: npx cypress install
+
+      # If your Cypress tests require the ASP.NET app to be running,
+      # tell me the project path and port and I will add/enable the Start App step.
+      # Example (uncomment and adjust if needed):
+      # - name: Start ASP.NET app
+      #   run: |
+      #     dotnet run --project ./path/to/Your.WebApp.csproj --urls=http://localhost:5000 &
+      #     npx wait-on http://localhost:5000
+      #   env:
+      #     ASPNETCORE_ENVIRONMENT: Development
+
+      - name: Run Cypress tests
+        run: npx cypress run
+        env:
+          CI: true
