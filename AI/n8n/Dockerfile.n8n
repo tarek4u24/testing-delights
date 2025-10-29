@@ -9,9 +9,9 @@ RUN apk update && apk add --no-cache \
     unzip \
     sudo
 
-# Optional: install act CLI
+# ✅ github actions to run locally with act
 RUN curl -s https://raw.githubusercontent.com/nektos/act/master/install.sh | bash && \
-    mv ./bin/act /usr/local/bin/act && \
+    find . -name act -type f -exec mv {} /usr/local/bin/act \; && \
     chmod +x /usr/local/bin/act
 
 USER node
