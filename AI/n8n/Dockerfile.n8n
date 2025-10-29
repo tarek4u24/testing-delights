@@ -1,0 +1,17 @@
+FROM docker.n8n.io/n8nio/n8n
+
+USER root
+
+RUN apk update && apk add --no-cache \
+    curl \
+    bash \
+    git \
+    unzip \
+    sudo
+
+# Optional: install act CLI
+RUN curl -s https://raw.githubusercontent.com/nektos/act/master/install.sh | bash && \
+    mv ./bin/act /usr/local/bin/act && \
+    chmod +x /usr/local/bin/act
+
+USER node

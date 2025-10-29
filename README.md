@@ -58,6 +58,22 @@ Before running tests or contributing to this project, please ensure the followin
 To enhance your workflow and visibility while working on this project, consider installing the following optional tools:
 
 - **Tree CLI tool** — useful for visualizing folder structures in the terminal:
+
+[Install Act to run Github Actions locally](https://github.com/nektos/act)
+
   ```bash
+  <!-- Show Directories as tree -->
   choco install tree
   tree -L 2
+  <!-- Run Github action locally -->
+  choco install act-cli
+  act
+```
+### Docker Container
+
+Run to create docker container for n8n and others
+
+```bash
+docker-compose up --build -d
+docker exec -it act-runner /bin/sh
+```
