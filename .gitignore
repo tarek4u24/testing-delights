@@ -1,1 +1,48 @@
-**/bin
+# 🧱 C# build artifacts
+**/bin/
+**/obj/
+
+# 🛡️ n8n sensitive data
+AI/n8n/n8n-data/
+
+
+# 🧪 Optional: ignore all n8n runtime data except exported workflows
+AI/n8n/n8n-data/*
+!AI/n8n/n8n-data/exported-workflows/
+
+# 🐳 Docker artifacts
+*.log
+*.pid
+*.sock
+
+# 💻 OS-specific clutter
+.DS_Store
+Thumbs.db
+
+# 🧰 IDE/editor folders
+.vscode/
+.idea/
+*.swp
+
+# 🔐 Secrets and env files
+.env
+.env.local
+.env.*.local
+
+# 🧪 Test artifacts
+__pycache__/
+*.pyc
+coverage/
+.nyc_output/
+test-results/
+
+# 📦 Node modules (if any)
+node_modules/
+
+# 📂 Build artifacts
+dist/
+build/
+*.tgz
+
+# 🧪 CI/CD cache
+.cache/

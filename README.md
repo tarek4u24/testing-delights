@@ -74,5 +74,6 @@ To enhance your workflow and visibility while working on this project, consider 
 Run to create docker container for n8n and others
 
 ```bash
-docker-compose up -d
+docker-compose up --build -d
+docker exec -it act-runner /bin/sh
 ```
