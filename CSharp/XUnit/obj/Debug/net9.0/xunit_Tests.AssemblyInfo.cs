@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("xunit_Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e67dd9b7e339d0a87f537bca3c3ec62d35b60387")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4c6794646e7bb64251d5bb875daef36b6136e5e9")]
 [assembly: System.Reflection.AssemblyProductAttribute("xunit_Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("xunit_Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
