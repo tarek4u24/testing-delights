@@ -1,6 +1,39 @@
 version: '3.8'
 
 services:
+  # EverShop App
+  app:
+    image: evershop/evershop:latest
+    restart: always
+    environment:
+      DB_HOST: database
+      DB_PORT: 5432
+      DB_PASSWORD: postgres
+      DB_USER: postgres
+      DB_NAME: postgres
+    networks:
+      - myevershop
+    depends_on:
+      - database
+    ports:
+      - 3000:3000
+
+  # PostgreSQL Database
+  database:
+    image: postgres:16
+    restart: unless-stopped
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - myevershop
+
+  # n8n Automation Platform
   n8n:
     build:
       context: ./AI/n8n
@@ -19,3 +52,15 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "./:/testing-delights"
     restart: unless-stopped
+    networks:
+      - myevershop
+    depends_on:
+      - database
+
+networks:
+  myevershop:
+    name: MyEverShop
+    driver: bridge
+
+volumes:
+  postgres-data:
