@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test';
-
 test.describe('🛒 EverShop - Add to Cart Flow', () => {
   test('User can add a product to the cart', async ({ page }) => {
     const productName = 'Striped Cotton Sweater';

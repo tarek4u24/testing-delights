@@ -1,4 +1,21 @@
-@baseUrl= http://localhost:3000/api
+### ------ Evershop APIs --------
+@baseUrl = http://localhost:3000/api
 
-GET {{baseUrl}}/shippingMethods
+### Add items to Cart
+# POST {{baseUrl}}/cart/mine/items
+# Content-Type: application/json
+
+# {"sku":"CLL-98765","qty":"1"}
+
+# POST {{baseUrl}}/attributes
+# Accept: application/json
+# Cookie: asid=<s%3A4HpKQ3ZMvlLTPLTfeAj_RsJc31JsfaAR.c1GhDAJbdoFPork6XBEi%2FTK2GySO6Q01suXYtxh68Y0>
+
+POST {{baseUrl}}/admin/user/login
 Accept: application/json
+
+
+# Checkout Page
+# GET {{baseUrl}}/paymentMethods
+
+

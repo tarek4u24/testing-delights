@@ -1,0 +1,27 @@
+meta {
+  name: Cart Items
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{BASEURL}}/api/cart/mine/items
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "sku": "CLL-98765",
+    "qty": "1"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

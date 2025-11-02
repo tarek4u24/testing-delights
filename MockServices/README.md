@@ -3,7 +3,7 @@
  **Install:**
 - [System Requirements]( https://evershop.io/docs/development/getting-started/system-requirements)
 
-- [pgadmin](https://www.pgadmin.org/)
+- [pgadmin](https://www.pgadmin.org/) & Create Database
 
 **Follow instructions here:** 
 - [Installation Guide](https://evershop.io/docs/development/getting-started/installation-guide)

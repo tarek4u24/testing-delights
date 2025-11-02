@@ -1,0 +1,31 @@
+meta {
+  name: Admin Login
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{BASEURL}}/admin/user/login
+  body: json
+  auth: inherit
+}
+
+headers {
+  Accept: application/json
+}
+
+body:json {
+  {
+      "email": "admin@admin.com",
+      "password": "{{admin}}"
+    }
+}
+
+vars:post-response {
+  asid: response.body.data.sid
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

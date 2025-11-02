@@ -1,0 +1,27 @@
+meta {
+  name: Create Attribute
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:3000/attributes
+  body: json
+  json {
+    name: "color"
+    slug: "color"
+    type: "dropdown"
+  }
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+  Cookie: asid=s%3AyourEncodedSessionCookie
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
