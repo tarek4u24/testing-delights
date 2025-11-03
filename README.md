@@ -68,6 +68,9 @@ To enhance your workflow and visibility while working on this project, consider 
   <!-- Run Github action locally -->
   choco install act-cli
   act
+  <!-- Manage different test env -->
+  npm install dotenv
+
 ```
 ### Docker Container
 
@@ -77,3 +80,12 @@ Run to create docker container for n8n and others
 docker-compose up --build -d
 docker exec -it act-runner /bin/sh
 ```
+
+### Final notes
+
+You don't need testing until you do, so why do you want to risk it?
+
+Testing is not just meeting requirements, but also assuring the QUALITY! in all of what this word has.
+
+![Testing Iceberg](assets/testing_iceberg.png)
+*Image source: [Testing Iceberg](https://jsmastery.com/course/the-complete-next-js-testing-course)*
