@@ -6,7 +6,7 @@
     "esModuleInterop": true,
     "outDir": "dist",
     "moduleResolution": "node",
-    "types": ["@playwright/test"]
+    "types": ["@playwright/test", "node"]
   },
-  "include": ["tests", "framework"]
+  "include": ["tests", "framework","*.ts"]
 }

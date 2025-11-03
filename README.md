@@ -68,6 +68,9 @@ To enhance your workflow and visibility while working on this project, consider 
   <!-- Run Github action locally -->
   choco install act-cli
   act
+  <!-- Manage different test env -->
+  npm install dotenv
+
 ```
 ### Docker Container
 
