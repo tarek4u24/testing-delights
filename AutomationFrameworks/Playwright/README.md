@@ -6,7 +6,8 @@ npx playwright install
 ```
 # Playwright useful tools
 ```bash
-npx playwright codegen --target=ts http://localhost:3000/
+npx playwright test
+npx playwright show-report
 ```
 
 ## 🚀 Common Playwright Test Commands
