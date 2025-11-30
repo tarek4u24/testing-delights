@@ -21,13 +21,13 @@ jobs:
           dotnet-version: '9.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore CSharp/XUnit/xunit_Tests.csproj
+        run: dotnet restore AutomationFrameworks/XUnit/xunit_Tests.csproj
 
       - name: Build
-        run: dotnet build CSharp/XUnit/xunit_Tests.csproj --no-restore --configuration Release
+        run: dotnet build AutomationFrameworks/XUnit/xunit_Tests.csproj --no-restore --configuration Release
 
       - name: Run unit tests
-        run: dotnet test CSharp/XUnit/xunit_Tests.csproj --no-build --configuration Release --verbosity normal
+        run: dotnet test AutomationFrameworks/XUnit/xunit_Tests.csproj --no-build --configuration Release --verbosity normal
         env:
           CI: true
 
@@ -46,21 +46,21 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        working-directory: Javascript/Automation
+        working-directory: AutomationFrameworks/Cypress
 
       - name: Install Cypress binary
         run: npx cypress install
-        working-directory: Javascript/Automation
+        working-directory: AutomationFrameworks/Cypress
 
       - name: Run JS Cypress tests
         run: npm run test:js
-        working-directory: Javascript/Automation
+        working-directory: AutomationFrameworks/Cypress
         env:
           CI: true
 
       - name: Run TS Cypress tests
         run: npm run test:ts
-        working-directory: Javascript/Automation
+        working-directory: AutomationFrameworks/Cypress
         env:
           CI: true
 
