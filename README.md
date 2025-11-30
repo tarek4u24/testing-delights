@@ -87,5 +87,5 @@ You don't need testing until you do, so why do you want to risk it?
 
 Testing is not just meeting requirements, but also assuring the QUALITY! in all of what this word has.
 
-![Testing Iceberg](assets/testing_iceberg.png)
+![Testing Iceberg](./assets/testing_Iceberg.png)
 *Image source: [Testing Iceberg](https://jsmastery.com/course/the-complete-next-js-testing-course)*
