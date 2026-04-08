@@ -1,0 +1,131 @@
+version: '3.8'
+
+services:
+  api:
+    build: ./api
+    container_name: perf_api
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_HOST=db
+      - DB_NAME=perfdb
+      - DB_USER=perfuser
+      - DB_PASS=perfpass
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    container_name: perf_db
+    environment:
+      POSTGRES_DB: perfdb
+      POSTGRES_USER: perfuser
+      POSTGRES_PASSWORD: perfpass
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: perf_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: perf_cadvisor
+    ports:
+      - "8080:8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+
+  postgres_exporter:
+    image: prometheuscommunity/postgres-exporter
+    container_name: perf_postgres_exporter
+    environment:
+      DATA_SOURCE_NAME: "postgresql://perfuser:perfpass@perf_db:5432/perfdb?sslmode=disable"
+    ports:
+      - "9187:9187"
+    depends_on:
+      - db
+
+  prometheus:
+    image: prom/prometheus
+    container_name: perf_prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    depends_on:
+      - cadvisor
+      - postgres_exporter
+
+  grafana:
+    image: grafana/grafana
+    container_name: perf_grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+      - loki
+
+  loki:
+    image: grafana/loki:2.9.0
+    container_name: perf_loki
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml
+
+  promtail:
+    image: grafana/promtail:2.9.0
+    container_name: perf_promtail
+    volumes:
+      - /var/log:/var/log
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - ./promtail-config.yml:/etc/promtail/config.yml
+    command: -config.file=/etc/promtail/config.yml
+    depends_on:
+      - loki
+
+  locust-master:
+    build: ./locust
+    container_name: perf_locust_master
+    ports:
+      - "8089:8089"
+    command: >
+      -f /mnt/locust/locustfile.py
+      --master
+      --web-host=0.0.0.0
+    depends_on:
+      - api
+
+  locust-worker:
+    build: ./locust
+    container_name: perf_locust_worker
+    command: >
+      -f /mnt/locust/locustfile.py
+      --worker
+      --master-host=locust-master
+    depends_on:
+      - locust-master
+  locust-exporter:
+    image: containersol/locust_exporter
+    container_name: perf_locust_exporter
+    ports:
+      - "9646:9646"
+    environment:
+      - LOCUST_EXPORTER_URI=http://locust-master:8089
+    depends_on:
+      - locust-master
+
+volumes:
+  db_data:
